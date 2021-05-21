@@ -1,4 +1,5 @@
 /**
+home
 学生 老师 班级 身份证号码
 学生->身份证 1对1
 学生->老师  多对多
@@ -15,7 +16,7 @@ import (
 )
 type  Class struct{
 	gorm.Model
-	ClassName string
+	ClassName string  //附加相应属性
 	//StudentName string
 	//班级里有多个学生
 	Students []Student
@@ -23,13 +24,13 @@ type  Class struct{
 
 type Student struct {
 	gorm.Model
-	StudentName string
+	StudentName string	//附加相应属性
 	//学生属于哪个班级 ClassID
 	ClassID uint
 	//一个学生都要有一个ID号
 	IDCard IDCard
 	//一个学生有多个老师
-	Teachers []Teacher `gorm:"many2many:student_teachers;"`
+	Teachers []Teacher `gorm:"many2many:student_teachers;"` // 自动产生第三方关联表
 	//学生想知道自己有几个老师
 	//TeacherID uint
 }
@@ -42,9 +43,11 @@ type  IDCard struct {
 
 type Teacher struct {
 	gorm.Model
-	TeacherName string
+	TeacherName string //附加相应属性
 	//老帅有多个学生
-//	StudentID uint
+	//StudentID uint
+
+	//多对多 后看
 	Students []Student  `gorm:"many2many:student_teachers;"`
 }
 

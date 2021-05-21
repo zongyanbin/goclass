@@ -8,24 +8,33 @@
 设置外键：Foreignkey
 关联外键 AssociationForeignkey
 多对多 many2many表名
+*/
 
- */
+/**
+学生 老师 班级 身份证号码
+学生->身份证 1对1
+学生->老师  多对多
+班级->学生 ·1对多
+*/
 
 package main
-
+// 引入gorm
 import (
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
 )
+// 创建User表自动生成两个主键
 type User struct {
-	gorm.Model
-	Name string `gorm:"primary_key;column:user_name;type:varchar(100);"`
+	gorm.Model   // 设置主键
+	Name string `gorm:"primary_key;column:user_name;type:varchar(100)"` // 名字也设置主键  自定义字段名 column:user_name
 }
 
-func (u User)TableName()string{
-	return "qm_users"
+// gorm生成是Users
+// 自定义表名 qm_users user挂载一个方法  支持条件语法
+func (u User) TableName() string{
+		return "qm_users"
 }
 
 func main(){
