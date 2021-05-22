@@ -11,3 +11,7 @@ func main(){
 	})
 	r.Run(":1010")
 }
+
+func add(){
+    r :=gini.Default();
+}
