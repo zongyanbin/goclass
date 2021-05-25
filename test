@@ -1,0 +1,126 @@
+package main
+
+import (
+	"fmt"
+)
+
+var list [6]string
+
+var list1 = [...]string{
+	"test","23324","aaaa","aaaa","aaaa","aaaa","aaaa",
+}
+
+
+type Hi func(num string) string
+
+func  Hello(num string) string  {
+	return num+"位客人，欢迎光临"
+}
+
+func Hello4DongBei(num string) string  {
+	return  num+"位兄弟，欢迎光临"
+}
+func main(){
+//	fmt.Println(list)
+	//fmt.Println(list1)
+	list1[0]="饺子"
+	for index,val :=range list1{
+		desc:=fmt.Sprintf("%d-%s",index,val)
+
+		fmt.Println(desc)
+	}
+	//list2 := [...]string{"1111","222","333"}
+	//fmt.Println(list2)
+
+	var list = [5]int{2:1}
+	fmt.Println(list)
+
+	var num3 float64
+	num3 = 3.141592654
+
+
+	fmt.Println(num3)
+
+//	fmt.Printf("%T",string1)
+
+stringaa :="我试字符串"
+	 nums1 := 123
+	 nums2 := 123.123
+	 bool1 := true
+	 //fmt.Println(string1,nums1,nums2,bool1)
+	 fmt.Printf("%T",stringaa,nums1,nums2,bool1)
+
+a := 0
+a++
+fmt.Println(a)
+
+
+// 条件判断语句
+if (a>3){
+	fmt.Println("正确判断")
+}else if (a==1) {
+	fmt.Println("进入中间判断")
+}else{
+	fmt.Println("进入错误判断")
+}
+
+// switch case 选择语句
+switch a{
+case 0:
+	fmt.Println("0")
+case 1:
+	fmt.Println("1")
+	fallthrough
+case 2:
+	fmt.Println("2")
+	fallthrough
+default:
+	fmt.Println("都不成立")
+
+
+}
+
+// 循环语句3种方式
+
+	// 死循环
+	//for  {
+	//	a++
+	//	fmt.Println(a)
+	//	if(a>11111){
+	//		break
+	//	}
+	//}
+
+	// 常用循环
+/*	for a:=0; a<=10; a++ {
+		fmt.Println(a)
+	}*/
+
+	// 常用循环
+	//for a<10{
+	//	a++
+	//	fmt.Println(a)
+	//}
+
+	//跳转语句 break continue 跳转循环 跳出本次循环
+	//for a<10{
+	//	a++
+	//	if(a==5){
+	//		continue
+	//	}
+	//	fmt.Println(a)
+	//}
+
+
+	A:
+		for a<10 {
+			a++
+			fmt.Println(a)
+			if(a==5){
+				break A
+				goto  B
+			}
+		}
+	B:
+		fmt.Println("未来到B了 rush B")
+}
